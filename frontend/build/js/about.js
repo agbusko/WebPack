@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{2:function(n,w){alert(10),alert(xxx)}},[[2,0]]]);
