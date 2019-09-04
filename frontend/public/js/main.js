@@ -1,1 +1,0 @@
-var main=(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[3],[function(n,a){alert(10)}],[[0,0]]]);

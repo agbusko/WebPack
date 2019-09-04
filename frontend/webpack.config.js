@@ -9,7 +9,7 @@ module.exports = {
 
     // точки входа (какой модуль собирать);
     entry: {
-        main: './main.js',
+        main: './app.js',
         about: './about.js',
         home: './home.js',
     },

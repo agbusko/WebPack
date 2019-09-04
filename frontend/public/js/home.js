@@ -1,1 +1,0 @@
-var home=(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[2],{2:function(n,a){alert(10),alert(xxx)}},[[2,0]]]);
