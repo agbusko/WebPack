@@ -1,2 +1,2 @@
-# dafaultProject
+# WebPack
 for Webpack test
