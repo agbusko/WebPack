@@ -25,6 +25,13 @@ module.exports = {
         // publicPath: 'js/'    // публичный путь, для например index.html;
     },
 
+    // настройки сервера;
+    devServer: {
+        host: 'localhost',
+        port: 7777,
+        hot: true, // работа серера в режиме горячей замены;
+    },
+
     devtool: 'source-map',
 
     module: {
