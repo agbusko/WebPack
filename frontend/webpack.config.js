@@ -1,6 +1,7 @@
 /* global require __dirname module */    // для eslint с babel - что это глобальная переменная;
 // #1. Подключение внешних модулей;
-const path = require('path');    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
+const path = require('path'),    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
+      webpack = require('webpack');
 
 // #2. Подключение внутренних модулей;
 module.exports = {
@@ -20,6 +21,13 @@ module.exports = {
 
     resolve: {
         extensions: ['.less', '.hbs', '.js'] // подставляет расширение (первый less);
+    },
+
+    devServer: {
+        host: 'localhost',
+        port: 7777,
+        hot: true,  // чтобы сервер работал в режиме горячей замены;
+        open: true,
     },
 
     module: {
@@ -51,8 +59,9 @@ module.exports = {
         ]
     },
 
-    devServer: {
-      host: 'localhost',
-      port: 7777,
-    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin({
+            // Options...
+        })
+    ],
 }
