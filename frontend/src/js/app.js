@@ -6,4 +6,4 @@ import Footer from './views/partials/footer';    // js, подвал;
 
 let test='test';
 
-alert('Главный файл JS (app.js)');
+

@@ -5,7 +5,7 @@ const path = require('path'),    // подключаемый модуль node.j
 
 // #2. Подключение внутренних модулей;
 module.exports = {
-    context: path.resolve(__dirname, 'js'), // корень точки входа по умолчанию;
+    context: path.resolve(__dirname, './src/js'), // корень точки входа по умолчанию;
 
     // точки входа, какой модуль собирать;
     entry: {
@@ -14,7 +14,8 @@ module.exports = {
 
     // точки выхода;
     output: {
-        path: path.resolve(__dirname, 'public'), // скрещивание абсол. пути с относ. (то есть полный путь до данной папки), см. выше;
+        path: path.resolve(__dirname, 'dist'), // скрещивание абсол. пути с относ. (то есть полный путь до данной
+        // папки), см. выше;
         publicPath: '/',
         filename: '[name].js'
     },
@@ -24,10 +25,11 @@ module.exports = {
     },
 
     devServer: {
+        contentBase: path.resolve(__dirname, './src'),
         host: 'localhost',
         port: 7777,
         hot: true,  // чтобы сервер работал в режиме горячей замены;
-        open: true,
+        open: true, // авто-открытие в браузере;
     },
 
     module: {
