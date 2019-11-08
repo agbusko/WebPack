@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///../styles/app.less"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"styles/app.css","sourcesContent":["h1 {\n  display: grid;\n  transition: all 0.5s;\n  user-select: none;\n  background-color: lightseagreen;\n}\n"],"sourceRoot":""}

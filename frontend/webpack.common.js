@@ -1,7 +1,8 @@
 /* global require __dirname module */    // для eslint с babel - что это глобальная переменная;
 // #1. Подключение внешних модулей;
-const path = require('path'),    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
-      webpack = require('webpack');
+const path = require('path');    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
+
+
 
 // #2. Подключение внутренних модулей;
 module.exports = {
@@ -16,20 +17,12 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'), // скрещивание абсол. пути с относ. (то есть полный путь до данной
         // папки), см. выше;
-        publicPath: '/',
+        publicPath: './',   // для вставки стилей в index.html;
         filename: '[name].js'
     },
 
     resolve: {
         extensions: ['.less', '.hbs', '.js'] // подставляет расширение (первый less);
-    },
-
-    devServer: {
-        contentBase: path.resolve(__dirname, './src'),
-        host: 'localhost',
-        port: 7777,
-        hot: true,  // чтобы сервер работал в режиме горячей замены;
-        open: true, // авто-открытие в браузере;
     },
 
     module: {
@@ -56,14 +49,8 @@ module.exports = {
             ]
         }, {
             test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-            loader: 'file?name=[name].[ext]?[hash]',
+            loader: 'file?name=[path][name].[ext]?[hash]',
         },
         ]
     },
-
-    plugins: [
-        new webpack.HotModuleReplacementPlugin({
-            // Options...
-        })
-    ],
 }

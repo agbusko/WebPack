@@ -1,11 +1,11 @@
 {
-  "name": "defaultProject(BAG)",
+  "name": "WebPack(BAG)",
   "version": "1.0.0",
   "description": "a set of important settings, utilities (BAG) ",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "BAG",
@@ -32,7 +32,8 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
