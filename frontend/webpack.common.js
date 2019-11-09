@@ -1,8 +1,7 @@
 /* global require __dirname module */    // для eslint с babel - что это глобальная переменная;
 // #1. Подключение внешних модулей;
-const path = require('path');    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
-
-
+const path = require('path'),    // подключаемый модуль node.js для нахождения абсолютного пути, см. ниже;
+      HtmlWebpackPlugin = require('html-webpack-plugin'); // создание html по шаблону index.html;
 
 // #2. Подключение внутренних модулей;
 module.exports = {
@@ -15,14 +14,14 @@ module.exports = {
 
     // точки выхода;
     output: {
-        path: path.resolve(__dirname, 'dist'), // скрещивание абсол. пути с относ. (то есть полный путь до данной
-        // папки), см. выше;
-        publicPath: './',   // для вставки стилей в index.html;
+        // скрещивание абсол. пути с относ. (то есть полный путь до данной папки), см. выше;
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
     },
 
     resolve: {
-        extensions: ['.less', '.hbs', '.js'] // подставляет расширение (первый less);
+        // подставляет расширение (первый less);
+        extensions: ['.less', '.hbs', '.js']
     },
 
     module: {
@@ -42,8 +41,9 @@ module.exports = {
             ]
         }, {
             test: /\.less$/,
+            exclude: /node_modules/,
             use: [
-                'style-loader',
+                'style-loader', // Inject CSS into the DOM;
                 'css-loader',
                 'less-loader',  // compiles Less to CSS;
             ]
@@ -53,4 +53,22 @@ module.exports = {
         },
         ]
     },
+
+    plugins: [
+        new HtmlWebpackPlugin( {
+                template: path.resolve(__dirname, './src/index.html'),
+                files: {
+                    css: [ 'app.css' ],
+                },
+                minify: {
+                    useShortDoctype: true,
+                    removeStyleLinkTypeAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    collapseWhitespace: true,
+                    removeComments: true,
+                    removeRedundantAttributes: true
+                },
+            }
+        ),
+    ]
 }

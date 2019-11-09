@@ -1,5 +1,5 @@
 // #1. Подключение внешних модулей;
-const merge = require('webpack-merge'),
+const merge = require('webpack-merge'), // для слияния конфигов webpack;
       path = require('path'),
       webpack = require('webpack'),
       common = require('./webpack.common.js');
@@ -15,6 +15,7 @@ module.exports = merge(common, {
         port: 7777,
         hot: true,  // чтобы сервер работал в режиме горячей замены;
         open: true, // авто-открытие в браузере;
+        overlay: true,  // для удобства отображения ошибок;
     },
 
     plugins: [
