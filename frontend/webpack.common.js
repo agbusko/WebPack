@@ -38,6 +38,7 @@ module.exports = {
                         ]
                     }
                 },
+                'eslint-loader'
             ]
         }, {
             test: /\.less$/,
@@ -45,12 +46,12 @@ module.exports = {
             use: [
                 'style-loader', // Inject CSS into the DOM;
                 'css-loader',
-                'less-loader',  // compiles Less to CSS;
+                'less-loader'  // compiles Less to CSS;
             ]
         }, {
             test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
             loader: 'file?name=[path][name].[ext]?[hash]',
-        },
+        }
         ]
     },
 
@@ -67,8 +68,8 @@ module.exports = {
                     collapseWhitespace: true,
                     removeComments: true,
                     removeRedundantAttributes: true
-                },
+                }
             }
-        ),
+        )
     ]
-}
+};
