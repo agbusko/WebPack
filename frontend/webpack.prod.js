@@ -34,10 +34,10 @@ module.exports = merge(common, {
                             ]
                         }
                     },
-                    'less-loader',
+                    'less-loader'
                 ]
-            },
-        ],
+            }
+        ]
     },
 
     plugins: [
@@ -46,7 +46,7 @@ module.exports = merge(common, {
         // "вырезание" css из js;
         new MiniCssExtractPlugin({
             filename: 'styles/app.css'
-        }),
+        })
     ],
 
     optimization: {
@@ -68,6 +68,6 @@ module.exports = merge(common, {
              new UglifyJsPlugin({
                  sourceMap: true
              })
-        ],
-    },
+        ]
+    }
 });
